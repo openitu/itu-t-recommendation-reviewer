@@ -1,6 +1,8 @@
 # ITU-T Recommendation Reviewer
 
-A [Claude Skill](https://www.anthropic.com/news/skills) that reviews draft **ITU-T Recommendations** (including ITU-T | ISO/IEC common texts, amendments, and corrigenda) for compliance with the official ITU-T drafting rules — before the text goes to TSB or is proposed for consent, determination, or approval.
+A **model-agnostic AI agent skill** that reviews draft **ITU-T Recommendations** (including ITU-T | ISO/IEC common texts, amendments, and corrigenda) for compliance with the official ITU-T drafting rules — before the text goes to TSB or is proposed for consent, determination, or approval.
+
+The skill is written entirely in plain Markdown, so **any large language model or AI agent can use it** — load the files into the model's context, or install them in any agent framework that supports the open [Agent Skills](https://agentskills.io) format (SKILL.md + reference files).
 
 It encodes the drafting and presentation rules from three authoritative sources:
 
@@ -12,29 +14,33 @@ It encodes the drafting and presentation rules from three authoritative sources:
 
 ## What it does
 
-Given a draft Recommendation (as .docx, PDF, or pasted text), the skill:
+Given a draft Recommendation (as .docx, PDF, or pasted text), the skill instructs the model to:
 
-1. **Classifies the document type first** — pure ITU-T text, ITU-T | ISO/IEC common text, or amendment/corrigendum — and applies the correct rulebook.
-2. **Runs a six-pass review**: skeleton & mandatory elements → boilerplate wording → references & citations → definitions & abbreviations → figures/tables/equations/notes → quality checklist & language.
-3. **Produces a structured review report** with an overall verdict (READY / MINOR REVISION / MAJOR REVISION), findings graded Critical / Major / Minor, each pinpointed to a clause and citing the governing rule, plus the Annex D pre-approval checklist as a pass/fail table.
-4. **Offers follow-through** — corrected clauses with revision marks, rewritten definitions, or ready-to-paste boilerplate.
+1. **Classify the document type first** — pure ITU-T text, ITU-T | ISO/IEC common text, or amendment/corrigendum — and apply the correct rulebook.
+2. **Run a six-pass review**: skeleton & mandatory elements → boilerplate wording → references & citations → definitions & abbreviations → figures/tables/equations/notes → quality checklist & language.
+3. **Produce a structured review report** with an overall verdict (READY / MINOR REVISION / MAJOR REVISION), findings graded Critical / Major / Minor, each pinpointed to a clause and citing the governing rule, plus the Annex D pre-approval checklist as a pass/fail table.
+4. **Offer follow-through** — corrected clauses with revision marks, rewritten definitions, or ready-to-paste boilerplate.
 
 The skill checks drafting/presentation compliance and internal consistency. It does **not** judge the technical correctness of the standard's subject matter, and it never predicts approval outcomes.
 
 ## Installation
 
-### Claude (claude.ai / Claude desktop / Cowork)
+### Any LLM (ChatGPT, Gemini, Qwen, DeepSeek, local models, …)
 
-Download [`itu-t-recommendation-reviewer.skill`](./itu-t-recommendation-reviewer.skill) from this repository and add it in **Settings → Capabilities → Skills**.
+The skill is just Markdown. Attach or paste `SKILL.md` plus the five files in `references/` into the conversation (or your tool's knowledge/context feature), then ask the model to review your draft following SKILL.md.
 
-### Claude Code
+### Agent frameworks supporting the Agent Skills format
 
-Copy this repository into your skills directory:
+Clone this repository into your agent's skills directory, e.g. for Claude Code:
 
 ```bash
 git clone https://github.com/TheTaoism/itu-t-recommendation-reviewer.git \
   ~/.claude/skills/itu-t-recommendation-reviewer
 ```
+
+### Claude apps (claude.ai / desktop / Cowork)
+
+Download [`itu-t-recommendation-reviewer.skill`](./itu-t-recommendation-reviewer.skill) and add it in **Settings → Capabilities → Skills**.
 
 ## Usage
 
@@ -57,7 +63,7 @@ references/
   definitions-rules.md            # Rules for writing definitions
   common-text-rules.md            # Deviations for ITU-T | ISO/IEC joint texts
   quality-checklist.md            # Annex D pre-approval checklist + A.1 process checks
-itu-t-recommendation-reviewer.skill   # Packaged skill, ready to install in Claude
+itu-t-recommendation-reviewer.skill   # Packaged skill for Claude apps (optional convenience)
 ```
 
 ## Contributing
@@ -68,7 +74,7 @@ Please note: **all changes go through pull requests and require review and appro
 
 ## Disclaimer
 
-This is an independent community project. It is not endorsed by, affiliated with, or approved by the International Telecommunication Union (ITU). "ITU" and "ITU-T" are used solely to describe the subject matter. Always verify review findings against the current official ITU-T editing guidelines.
+This is an independent community project. It is not endorsed by, affiliated with, or approved by the International Telecommunication Union (ITU), nor by any AI vendor. "ITU" and "ITU-T" are used solely to describe the subject matter. Always verify review findings against the current official ITU-T editing guidelines.
 
 ## License
 
