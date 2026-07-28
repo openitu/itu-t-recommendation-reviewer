@@ -34,7 +34,7 @@ The skill is just Markdown. Attach or paste `SKILL.md` plus the five files in `r
 Clone this repository into your agent's skills directory, e.g. for Claude Code:
 
 ```bash
-git clone https://github.com/TheTaoism/itu-t-recommendation-reviewer.git \
+git clone https://github.com/OpenITU/itu-t-recommendation-reviewer.git \
   ~/.claude/skills/itu-t-recommendation-reviewer
 ```
 
