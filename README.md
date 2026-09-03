@@ -9,6 +9,7 @@ It encodes the drafting and presentation rules from three authoritative sources:
 1. **ITU-T Editing Guidelines — Author's guide for drafting ITU-T Recommendations** (06/2023) — the primary rulebook for pure ITU-T texts ([ITU permalink](https://www.itu.int/oth/T0A0F0000040005))
 2. **Rules for presentation of ITU-T | ISO/IEC common text** (09/2014) — overrides the Author's guide for joint ITU-T | ISO/IEC documents
 3. **Recommendation ITU-T A.1** (09/2019) — ITU-T working methods ([ITU permalink](https://www.itu.int/rec/T-REC-A.1))
+4. **TSAG LS20 Attachment 1** — draft *Checklist for draft ITU-T Deliverables* (source: contribution TSAG-C48 by OKI, NICT and The University of Tokyo; TSAG, Geneva, January 2026). A rapporteur-meeting readiness checklist circulated by TSAG to all Study Groups for comment — currently a **draft**, and reported as such.
 
 > The ITU source documents themselves are **not** redistributed in this repository. They are © ITU and available free of charge from the links above and the [ITU-T website](https://www.itu.int/en/ITU-T/).
 
