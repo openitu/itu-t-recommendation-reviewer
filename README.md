@@ -2,7 +2,7 @@
 
 A **model-agnostic AI agent skill** that reviews draft **ITU-T Recommendations** (including ITU-T | ISO/IEC common texts, amendments, and corrigenda) for compliance with the official ITU-T drafting rules — before the text goes to TSB or is proposed for consent, determination, or approval.
 
-The skill is written entirely in plain Markdown, so **any large language model or AI agent can use it** — load the files into the model's context, or install them in any agent framework that supports the open [Agent Skills](https://agentskills.io) format (SKILL.md + reference files).
+The skill is written entirely in plain Markdown, so **any large language model or AI agent can use it** — point the model at the files on GitHub, load them into the model's context, or install them in any agent framework that supports the open [Agent Skills](https://agentskills.io) format (SKILL.md + reference files).
 
 It encodes the drafting and presentation rules from three authoritative sources:
 
@@ -23,6 +23,34 @@ Given a draft Recommendation (as .docx, PDF, or pasted text), the skill instruct
 
 The skill checks drafting/presentation compliance and internal consistency. It does **not** judge the technical correctness of the standard's subject matter, and it never predicts approval outcomes.
 
+## Quick start — no download required
+
+You do not have to clone or download anything. If your model or agent can fetch web pages (for example Claude with web access, ChatGPT with browsing, Gemini, or any agent with a `fetch`/`web_fetch` tool), simply tell it where the skill lives and let it read the files itself.
+
+Attach your draft and send a prompt such as:
+
+```
+Use the following skill file
+https://github.com/openitu/itu-t-recommendation-reviewer/blob/main/SKILL.md
+and all the files in the folder
+https://github.com/openitu/itu-t-recommendation-reviewer/tree/main/references
+to review the attached draft Recommendation for ITU-T compliance.
+```
+
+The model will fetch `SKILL.md`, follow its instructions to load the five reference files, and then run the review on your draft. The same prompt works in Chinese or any other working language:
+
+```
+请读取 https://github.com/openitu/itu-t-recommendation-reviewer/blob/main/SKILL.md
+以及 https://github.com/openitu/itu-t-recommendation-reviewer/tree/main/references
+目录下的全部文件，并据此检查附件中的 ITU-T 建议书草案是否符合编辑规则。
+```
+
+Tips:
+
+- If the model has trouble reading the GitHub HTML pages, give it the **raw** URLs instead, e.g. `https://raw.githubusercontent.com/openitu/itu-t-recommendation-reviewer/main/SKILL.md` and `https://raw.githubusercontent.com/openitu/itu-t-recommendation-reviewer/main/references/<file>.md`.
+- Always referencing the `main` branch means you automatically get the latest version of the rules — no need to re-download after each update.
+- If your model has no web access, use one of the installation options below.
+
 ## Installation
 
 ### Any LLM (ChatGPT, Gemini, Qwen, DeepSeek, local models, …)
@@ -33,14 +61,14 @@ The skill is just Markdown. Attach or paste `SKILL.md` plus the five files in `r
 
 Clone this repository into your agent's skills directory, e.g. for Claude Code:
 
-```bash
+```
 git clone https://github.com/OpenITU/itu-t-recommendation-reviewer.git \
   ~/.claude/skills/itu-t-recommendation-reviewer
 ```
 
 ### Claude apps (claude.ai / desktop / Cowork)
 
-Download [`itu-t-recommendation-reviewer.skill`](./itu-t-recommendation-reviewer.skill) and add it in **Settings → Capabilities → Skills**.
+Download [`itu-t-recommendation-reviewer.skill`](https://github.com/openitu/itu-t-recommendation-reviewer/blob/main/itu-t-recommendation-reviewer.skill) and add it in **Settings → Capabilities → Skills**.
 
 ## Usage
 
@@ -68,7 +96,7 @@ itu-t-recommendation-reviewer.skill   # Packaged skill for Claude apps (optional
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md).
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Please note: **all changes go through pull requests and require review and approval by the maintainer** before they are merged. Direct pushes to `main` are not accepted.
 
@@ -78,4 +106,4 @@ This is an independent community project. It is not endorsed by, affiliated with
 
 ## License
 
-[MIT](./LICENSE) — anyone may download, use, modify, and redistribute this skill, commercially or otherwise, provided the license notice is preserved.
+[MIT](LICENSE) — anyone may download, use, modify, and redistribute this skill, commercially or otherwise, provided the license notice is preserved.
