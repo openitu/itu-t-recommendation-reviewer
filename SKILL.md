@@ -10,6 +10,7 @@ Review draft ITU-T Recommendations against the official drafting rules so that a
 1. **ITU-T Editing Guidelines — Author's guide for drafting ITU-T Recommendations (06/2023)** — the primary rulebook for pure ITU-T texts.
 2. **Rules for presentation of ITU-T | ISO/IEC common text (09/2014)** — overrides the author's guide when the text is a joint ITU-T | ISO/IEC document.
 3. **Recommendation ITU-T A.1 (09/2019)** — working methods; relevant for terminology (amendment/corrigendum/annex/appendix), work-item context, and submission expectations.
+4. **TSAG LS20 Attachment 1 — draft "Checklist for draft ITU-T Deliverables" (TSAG-C48, Geneva, Jan 2026)** — the rapporteur-meeting readiness checklist circulated by TSAG to all SGs. **Status: draft** (under SG consultation); apply it, but attribute its findings to the draft checklist, not to the Author's guide, unless the guide independently requires the same thing.
 
 ## Step 0 — Identify the document type FIRST
 
@@ -32,6 +33,7 @@ Read the reference files relevant to the document type before making findings. D
 - `references/definitions-rules.md` — the full best-practice rules for writing definitions (structure, conciseness, independence, grammatical form, formatting).
 - `references/common-text-rules.md` — everything that differs for ITU-T | ISO/IEC joint texts.
 - `references/quality-checklist.md` — the rapporteur's pre-approval checklist (Annex D) that every draft must pass, plus A.1-derived process checks.
+- `references/rapporteur-meeting-checklist.md` — the TSAG LS20 draft RM checklist (items S1, R1–R4, D1–D3, C1–C2, M1–M8): scope↔body alignment, normative-reference usage, definition reusability, conventions actually used, figure legends, architecture-vs-framework figures, feasibility of mandatory requirements.
 
 ## Step 2 — Run the review in passes
 
@@ -48,6 +50,8 @@ Review in this order; each pass has its own section in the report. Quote or pinp
 **Pass 5 — Figures, tables, equations, notes.** Numbering schemes, caption placement (figure titles below/centred; table titles above/centred), explicit in-text reference to every figure and table, note formats ("NOTE – " / "NOTE 1 – "), footnote rules, notes-to-tables placed inside the table frame, equation numbering, SI units, thousand separator as single quote.
 
 **Pass 6 — Quality checklist & language.** Walk through `references/quality-checklist.md`: no case studies in normative parts, minimal options, no conflict with approved Recommendations, spell-check, all acronyms (including in figures/tables) expanded, unnecessary capitalization/italics/bold avoided, title contains no acronyms and does not repeat series titles.
+
+**Pass 7 — Rapporteur-meeting readiness.** Walk through `references/rapporteur-meeting-checklist.md` (items S1, R1–R4, D1–D3, C1–C2, M1–M8). This pass goes beyond presentation into content organization: Scope elements all treated in the body (and Scope stable at decision stage — otherwise recommend postponement), clause-2 references cited normatively after clause 6 (clause-3-only citation → Bibliography), no general terms in 3.2 and 3.2 terms reusable, every clause-5 convention keyword actually used, every figure's technical terms explained in the text, shapes/lines defined via legend or clause 5, "functional architecture" figures showing connection lines (else rename to framework), positional logic of framework elements stated, mandatory-requirement load feasible, and the draft's difference from existing Recommendations made explicit. Skip items already settled by an earlier pass — cross-reference instead of duplicating.
 
 ## Step 3 — Write the review report
 
@@ -71,7 +75,12 @@ Same format.
 Same format; may be grouped (e.g., "12 instances of 'may not' — replace with 'need not'").
 
 ## 5. Checklist result
-The Annex D checklist as a table: item | pass/fail/N-A | evidence.
+Two tables:
+(a) the Annex D checklist — item | pass/fail/N-A | evidence;
+(b) the TSAG LS20 draft RM checklist (S1, R1–R4, D1–D3, C1–C2, M1–M8), preceded by its
+review-summary header (date, document, reviewer, result: "Need further modifications" /
+"Need judgement") — item | Yes/No/N-A | evidence. Label table (b) as based on the DRAFT
+checklist circulated via TSAG LS20.
 
 ## 6. Suggested next steps
 Short prose paragraph: what to fix first, and any process reminders from ITU-T A.1
